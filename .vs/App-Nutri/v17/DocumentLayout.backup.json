@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Lucas\\Personal\\Projects\\Nutri-App\\Fuentes\\App-Nutri\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{112BAC29-4486-4079-BE00-B1618A391CB5}|App-Nutri\\App-Nutri.csproj|c:\\lucas\\personal\\projects\\nutri-app\\fuentes\\app-nutri\\app-nutri\\controllers\\alimentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{112BAC29-4486-4079-BE00-B1618A391CB5}|App-Nutri\\App-Nutri.csproj|solutionrelative:app-nutri\\controllers\\alimentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{112BAC29-4486-4079-BE00-B1618A391CB5}|App-Nutri\\App-Nutri.csproj|c:\\lucas\\personal\\projects\\nutri-app\\fuentes\\app-nutri\\app-nutri\\models\\subcategoriapacientepersonalizada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{112BAC29-4486-4079-BE00-B1618A391CB5}|App-Nutri\\App-Nutri.csproj|solutionrelative:app-nutri\\models\\subcategoriapacientepersonalizada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{112BAC29-4486-4079-BE00-B1618A391CB5}|App-Nutri\\App-Nutri.csproj|c:\\lucas\\personal\\projects\\nutri-app\\fuentes\\app-nutri\\app-nutri\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{112BAC29-4486-4079-BE00-B1618A391CB5}|App-Nutri\\App-Nutri.csproj|solutionrelative:app-nutri\\controllers\\pacientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AlimentosController.cs",
+              "DocumentMoniker": "C:\\Lucas\\Personal\\Projects\\Nutri-App\\Fuentes\\App-Nutri\\App-Nutri\\Controllers\\AlimentosController.cs",
+              "RelativeDocumentMoniker": "App-Nutri\\Controllers\\AlimentosController.cs",
+              "ToolTip": "C:\\Lucas\\Personal\\Projects\\Nutri-App\\Fuentes\\App-Nutri\\App-Nutri\\Controllers\\AlimentosController.cs",
+              "RelativeToolTip": "App-Nutri\\Controllers\\AlimentosController.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAADsAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T14:03:39.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SubCategoriaPacientePersonalizada.cs",
+              "DocumentMoniker": "C:\\Lucas\\Personal\\Projects\\Nutri-App\\Fuentes\\App-Nutri\\App-Nutri\\Models\\SubCategoriaPacientePersonalizada.cs",
+              "RelativeDocumentMoniker": "App-Nutri\\Models\\SubCategoriaPacientePersonalizada.cs",
+              "ToolTip": "C:\\Lucas\\Personal\\Projects\\Nutri-App\\Fuentes\\App-Nutri\\App-Nutri\\Models\\SubCategoriaPacientePersonalizada.cs",
+              "RelativeToolTip": "App-Nutri\\Models\\SubCategoriaPacientePersonalizada.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T14:03:09.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PacientesController.cs",
+              "DocumentMoniker": "C:\\Lucas\\Personal\\Projects\\Nutri-App\\Fuentes\\App-Nutri\\App-Nutri\\Controllers\\PacientesController.cs",
+              "RelativeDocumentMoniker": "App-Nutri\\Controllers\\PacientesController.cs",
+              "ToolTip": "C:\\Lucas\\Personal\\Projects\\Nutri-App\\Fuentes\\App-Nutri\\App-Nutri\\Controllers\\PacientesController.cs",
+              "RelativeToolTip": "App-Nutri\\Controllers\\PacientesController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAEwAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T14:02:19.845Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
