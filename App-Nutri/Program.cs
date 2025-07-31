@@ -9,21 +9,29 @@ using App_Nutri.Repositories;
 using App_Nutri.Services;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
+using System;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 // Configurar CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowLocalhost", policy =>
+    /*options.AddPolicy("AllowLocalhost", policy =>
     {
         policy.WithOrigins("http://localhost:3000") // Reemplaza con la URL de tu frontend
               .AllowAnyMethod() // Permite todos los métodos HTTP (GET, POST, etc.)
               .AllowAnyHeader(); // Permite cualquier encabezado
+    });*/
+    options.AddPolicy("AllowFrontend",policy =>
+    {
+        policy.WithOrigins("https://tu-frontend.vercel.app")
+        .AllowAnyHeader()
+        .AllowAnyMethod();
     });
 });
 
@@ -54,18 +62,6 @@ builder.Services.AddSwaggerGen(c =>
             },
             new string[] {}
         }
-    });
-});
-
-//var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowLocalhost", policy =>
-    {
-        policy.WithOrigins("http://localhost:3000")
-              .AllowAnyMethod()
-              .AllowAnyHeader();
     });
 });
 
@@ -149,6 +145,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Urls.Add($"http://*:{port}");
 
 app.Run();
 
