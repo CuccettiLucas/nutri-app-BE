@@ -113,6 +113,8 @@ namespace App_Nutri.Controllers
                                     Carbohidratos = a.Carbohidratos,
                                     Grasas = a.Grasas,
                                     Calorias = a.Calorias,
+                                    CantidadEquivalencia = a.CantidadEquivalencia,
+                                    UnidadEquivalencia = a.UnidadEquivalencia,
                                     Porcion = personalizado?.PorcionGramosPersonalizada != null
                                         ? (double)personalizado.PorcionGramosPersonalizada
                                         : a.Porcion,
@@ -134,62 +136,6 @@ namespace App_Nutri.Controllers
                 .ToList();
             return Ok(alimentosAgrupados);
         }
-
-        /*/ GET: api/Alimentos/AlimentosPorCateg
-        [HttpGet("AlimentosPorCateg/{ProfId}")]
-        public async Task<ActionResult<IEnumerable<AlimentosPorCategoriaDto>>> AlimentosPorCateg(int ProfId)
-        {
-            var alimentos = await _context.Alimentos
-                .Where(a => a.ProfesionalId == ProfId)
-                .Include(a => a.Categoria)
-                .Include(a => a.SubCategorias)
-                .Include(a => a.ListaAlimentosAlimentos)
-                    .ThenInclude(laa => laa.ListaAlimentos)
-                .ToListAsync();
-
-            var alimentosAgrupados = alimentos
-                .Where(a => a.Categoria != null)
-                .GroupBy(a => new { a.CategoriaId, a.Categoria.Nombre })
-                .Select(categoriaGrupo => new AlimentosPorCategoriaDto
-                {
-                    CategoriaId = categoriaGrupo.Key.CategoriaId.Value,
-                    CategoriaNombre = categoriaGrupo.Key.Nombre,
-                    Subcategorias = categoriaGrupo
-                    .GroupBy(a => new
-                    {
-                        SubcategoriaId = a.SubCategoriaId,
-                        SubcategoriaNombre = a.SubCategorias != null ? a.SubCategorias.Nombre : "Sin subcategoría",
-                        Porcion = (double)a.SubCategorias.PorcionGramos
-                    })
-                    .Select(subcategoriaGrupo => new ListSubCategoriaDto
-                    {
-                        SubcategoriaId = subcategoriaGrupo.Key.SubcategoriaId,
-                        SubcategoriaNombre = !string.IsNullOrEmpty(subcategoriaGrupo.Key.SubcategoriaNombre) ? subcategoriaGrupo.Key.SubcategoriaNombre : "Sin subcategoría",
-                        Porcion = subcategoriaGrupo.Key.Porcion,
-                        Alimentos = subcategoriaGrupo.Select(a => new AlimentoDto
-                        {
-                            Id = a.Id,
-                            Nombre = a.Nombre,
-                            Proteinas = a.Proteinas,
-                            Carbohidratos = a.Carbohidratos,
-                            Grasas = a.Grasas,
-                            Calorias = a.Calorias,
-                            Porcion = a.Porcion,
-                            ListaAlimentos = a.ListaAlimentosAlimentos
-                            .Select(la => new ListaAlimentosDto
-                            {
-                                ListaAlimentosId = la.ListaAlimentosId,
-                                Nombre = la.ListaAlimentos.Nombre
-                            }).ToList()
-                        }).ToList()
-                    })
-                    .OrderBy(s => s.SubcategoriaNombre)
-                    .ToList()
-                })
-                .OrderBy(c => c.CategoriaNombre) // Ordenar categorías alfabéticamente
-                .ToList();
-            return Ok(alimentosAgrupados);
-        }*/
 
         [HttpGet("AlimentosPorCateg/{ProfId}")]
         public async Task<ActionResult<IEnumerable<AlimentosPorCategoriaDto>>> AlimentosPorCateg(int ProfId)
@@ -231,6 +177,8 @@ namespace App_Nutri.Controllers
                                     Carbohidratos = a.Carbohidratos,
                                     Grasas = a.Grasas,
                                     Calorias = a.Calorias,
+                                    CantidadEquivalencia = a.CantidadEquivalencia,
+                                    UnidadEquivalencia = a.UnidadEquivalencia,
                                     Porcion = a.Porcion,
                                     ListaAlimentos = a.ListaAlimentosAlimentos.Select(la => new ListaAlimentosDto
                                     {
@@ -285,8 +233,6 @@ namespace App_Nutri.Controllers
             return Ok(alimentosAgrupados);
         }
 
-
-
         // POST: api/Alimentos
         [HttpPost]
         public async Task<ActionResult<Alimento>> PostAlimento(CrearAlimentoDto alimentoDto)
@@ -317,7 +263,9 @@ namespace App_Nutri.Controllers
                 Porcion = alimentoDto.porcion,
                 CategoriaId = alimentoDto.CategoriaId,
                 SubCategoriaId = alimentoDto.SubCategoriaId > 0 ? alimentoDto.SubCategoriaId : null,
-                SubCategorias = null
+                SubCategorias = null,
+                CantidadEquivalencia = alimentoDto.cantidadEquivalencia,
+                UnidadEquivalencia = alimentoDto.unidadEquivalencia
             };
 
             _context.Alimentos.Add(alimento);
@@ -369,6 +317,8 @@ namespace App_Nutri.Controllers
             alimento.Carbohidratos = alimentoDto.Carbohidratos;
             alimento.Grasas = alimentoDto.Grasas;
             alimento.Calorias = CalcularCalorias(alimentoDto.Carbohidratos, alimentoDto.Proteinas, alimentoDto.Grasas);
+            alimento.CantidadEquivalencia = alimentoDto.cantidadEquivalencia;
+            alimento.UnidadEquivalencia = alimentoDto.unidadEquivalencia.ToString();
 
             if (alimentoDto.Porcion <= 0)
             {

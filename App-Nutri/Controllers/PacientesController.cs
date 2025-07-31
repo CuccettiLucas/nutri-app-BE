@@ -311,7 +311,7 @@ namespace App_Nutri.Controllers
             return _context.Pacientes.Any(e => e.DNI == dni);
         }
 
-        /*Método para modificacion de porcion personalizada*/
+        /*Método para modificacion de porcion personalizada por alimento*/
         [HttpPut("{pacienteId}/personalizar-porcion")]
         public async Task<IActionResult> PersonalizarPorcion(int pacienteId, [FromBody] PorcionPersonalizadaDto dto)
         {
@@ -346,6 +346,41 @@ namespace App_Nutri.Controllers
 
             await _context.SaveChangesAsync();
             return Ok("Porcion personalizada actualizada.");
+        }
+
+        /*Método para modificacion de porcion personalizada por SubCategoría*/
+        [HttpPut("{pacienteId}/personalizar-subcategoria")]
+        public async Task<IActionResult> PersonalizarSubcategoria(int pacienteId, [FromBody] PorcionPersonalizadaSubCategDto dto)
+        {
+            var listPersonalizada = await _context.PacienteListaPersonalizadas
+                .FirstOrDefaultAsync(x => x.PacienteId == pacienteId);
+
+            if(listPersonalizada == null)
+                return NotFound("El paciente no tiene una lista personalizada.");
+
+            var existente = await _context.SubCategoriaPacientePersonalizadas
+                .FirstOrDefaultAsync(x =>
+                x.PacienteListaPersonalizadaId == listPersonalizada.id &&
+                x.SubCategoriaId == dto.SubcategId);
+
+            if(existente != null)
+            {
+                existente.PorcionGramosPersonalizada = dto.PorcionGramos;
+                _context.Update(existente);
+            }
+            else
+            {
+                var nuevo = new SubCategoriaPacientePersonalizada
+                {
+                    PacienteListaPersonalizadaId = listPersonalizada.id,
+                    SubCategoriaId = dto.SubcategId,
+                    PorcionGramosPersonalizada = dto.PorcionGramos
+                };
+                _context.SubCategoriaPacientePersonalizadas.Add(nuevo);
+            }
+
+            await _context.SaveChangesAsync();
+            return Ok("Porcion para subcategoría personalizada actualizada.");
         }
 
         [HttpGet("{pacienteId}/lista-personalizada")]

@@ -9,6 +9,8 @@
         public double Carbohidratos { get; set; }
         public double Grasas { get; set; }
         public double Porcion { get; set; }
+        public double cantidadEquivalencia { get; set; }
+        public string unidadEquivalencia { get; set; }
         public int? CategoriaId { get; set; }
         public int? SubCategoriaId { get; set; }
         public List<ListaAlimentosAlimentoDTO> ListaAlimentosAlimentos { get; set; }

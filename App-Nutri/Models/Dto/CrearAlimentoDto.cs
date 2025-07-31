@@ -11,5 +11,7 @@
         public int CategoriaId { get; set; }
         public int? SubCategoriaId { get; set; }
         public List<int> ListaAlimentosIds { get; set; } = new List<int>();
+        public double cantidadEquivalencia { get; set; }
+        public string unidadEquivalencia {  get; set; }
     }
 }

@@ -24,6 +24,8 @@
         public double Grasas { get; set; }
         public double Calorias { get; set; }
         public double Porcion { get; set; }
+        public double CantidadEquivalencia { get; set; }
+        public string UnidadEquivalencia { get; set; }
         public List<ListaAlimentosDto> ListaAlimentos { get; set; }
 
     }

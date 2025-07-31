@@ -15,6 +15,8 @@ namespace App_Nutri.Models
         public double Grasas { get; set; }
         public double Calorias { get; set; }
         public double Porcion { get; set; }
+        public double CantidadEquivalencia { get; set; }
+        public string UnidadEquivalencia { get; set; }
 
         //Relacion directa con Categoria
         public int? CategoriaId { get; set; }
