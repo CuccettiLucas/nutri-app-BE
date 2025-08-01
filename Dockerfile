@@ -22,7 +22,6 @@ COPY --from=build /app/out ./
 # Define el puerto en el que la aplicación escuchará.
 EXPOSE 80
 
-# === CAMBIO IMPORTANTE AQUÍ ===
 # Usamos la ruta completa '/usr/bin/dotnet' para asegurarnos de que el comando sea encontrado.
 # Por favor, reemplaza 'App-Nutri.dll' con el nombre real de tu archivo .dll.
 ENTRYPOINT ["/usr/bin/dotnet", "App-Nutri.dll"]

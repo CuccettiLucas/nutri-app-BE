@@ -1,11 +1,8 @@
-# Define un servicio web
 services:
   - type: web
     name: nutri-app-be
-    # Le indica a Render que use Docker para el build
     env: docker
     dockerfilePath: ./Dockerfile
     plan: free
     autoDeploy: true
-    # El puerto del contenedor debe coincidir con el puerto 'EXPOSE' en el Dockerfile
     port: 80
