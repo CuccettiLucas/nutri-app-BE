@@ -1,8 +1,8 @@
 services:
   - type: web
-    name: nutri-app-be
+    name: nutriapp-backend
     env: docker
-    dockerfilePath: ./Dockerfile
     plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: ./
     autoDeploy: true
-    port: 80
