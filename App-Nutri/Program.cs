@@ -16,22 +16,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SQL_CONNECTION_STRING")));
 
 // Configurar CORS
 builder.Services.AddCors(options =>
 {
-    /*options.AddPolicy("AllowLocalhost", policy =>
+    options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:3000") // Reemplaza con la URL de tu frontend
-              .AllowAnyMethod() // Permite todos los métodos HTTP (GET, POST, etc.)
-              .AllowAnyHeader(); // Permite cualquier encabezado
-    });*/
-    options.AddPolicy("AllowFrontend",policy =>
-    {
-        policy.WithOrigins("https://tu-frontend.vercel.app")
-        .AllowAnyHeader()
-        .AllowAnyMethod();
+        policy.WithOrigins("https://tu-frontend.vercel.app") // Reemplaza con la URL de tu frontend
+              .AllowAnyHeader()
+              .AllowAnyMethod();
     });
 });
 
