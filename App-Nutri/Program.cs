@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     //options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SQL_CONNECTION_STRING")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 // Configurar CORS
 builder.Services.AddCors(options =>
