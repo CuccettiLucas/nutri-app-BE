@@ -71,6 +71,13 @@ builder.Services.AddControllers()
         options.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
     });
 
+//Configurar serializer para ignorar ciclos
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
+
 // Configuración de JWT
 var key = builder.Configuration["Jwt:Key"]; // Asegúrate de definir esta clave en appsettings.json
 var issuer = builder.Configuration["Jwt:Issuer"]; // Define el emisor
